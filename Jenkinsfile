@@ -8,15 +8,22 @@ pipeline {
             }
         }
 
-        stage('Setting permissions and running the script') {
+        stage('Install Python 3.11 and pip') {
             steps {
-                sh 'chmod +x os_detector.py'
+                sh '''
+                apt update
+                apt install -y software-properties-common
+                add-apt-repository ppa:deadsnakes/ppa
+                apt update
+                apt install -y python3.11 python3.11-venv python3-pip
+                '''
             }
         }
 
-        stage('Run Python Script') {
+        stage('Setting permissions and running the script') {
             steps {
-                sh 'py os_detector.py'
+                sh 'chmod +x os_detector.py'
+                sh 'python3.11 os_detector.py'
             }
         }
     }
