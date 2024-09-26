@@ -8,10 +8,25 @@ pipeline {
             }
         }
 
+        stage('Install Python 3.11 and pip') {
+            steps {
+                sh '''
+                sudo apt update
+                sudo apt install -y python3.11 python3.11-venv python3.11-dev
+                sudo apt install -y python3-pip
+                '''
+            }
+        }
+
         stage('Setting permissions and running the script') {
             steps {
                 sh 'chmod +x OSDetector.py'
-                sh 'python3 OSDetector.py'
+            }
+        }
+
+        stage('Run Python Script') {
+            steps {
+                sh 'python3.11 OSDetector.py'
             }
         }
     }
