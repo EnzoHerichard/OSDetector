@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-     /*    stage('Install Python 3.11 and pip') {
+      stage('Install Python 3.11 and pip') {
             steps {
                 sh '''
                 sudo apt update
@@ -16,7 +16,7 @@ pipeline {
                 sudo apt install -y python3-pip
                 '''
             }
-        } */
+        }
 
         stage('Setting permissions and running the script') {
             steps {
