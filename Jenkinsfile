@@ -8,18 +8,6 @@ pipeline {
             }
         }
 
-        stage('Install Python 3.11 and pip') {
-            steps {
-                sh '''
-                sudo apt update
-                sudo apt install -y software-properties-common
-                sudo add-apt-repository ppa:deadsnakes/ppa
-                sudo apt update
-                sudo apt install -y python3.11 python3.11-venv python3-pip
-                '''
-            }
-        }
-
         stage('Setting permissions and running the script') {
             steps {
                 sh 'chmod +x os_detector.py'
