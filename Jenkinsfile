@@ -11,11 +11,11 @@ pipeline {
         stage('Install Python 3.11 and pip') {
             steps {
                 sh '''
-                apt update
-                apt install -y software-properties-common
-                add-apt-repository ppa:deadsnakes/ppa
-                apt update
-                apt install -y python3.11 python3.11-venv python3-pip
+                sudo apt update
+                sudo apt install -y software-properties-common
+                sudo add-apt-repository ppa:deadsnakes/ppa
+                sudo apt update
+                sudo apt install -y python3.11 python3.11-venv python3-pip
                 '''
             }
         }
