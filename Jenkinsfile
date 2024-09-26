@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run Python Script') {
             steps {
-                sh 'python3.11 os_detector.py'
+                sh 'py os_detector.py'
             }
         }
     }
