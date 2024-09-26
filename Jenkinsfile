@@ -20,13 +20,13 @@ pipeline {
 
         stage('Setting permissions and running the script') {
             steps {
-                sh 'chmod +x OSDetector.py'
+                sh 'chmod +x os_detector.py'
             }
         }
 
         stage('Run Python Script') {
             steps {
-                sh 'python3.11 OSDetector.py'
+                sh 'python3.11 os_detector.py'
             }
         }
     }
